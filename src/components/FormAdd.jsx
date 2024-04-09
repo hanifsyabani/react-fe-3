@@ -11,6 +11,7 @@ export default function FormAdd({addNote}) {
     e.preventDefault();
     
     const data = {
+      id : new Date().getTime().toString(),
       title,
       description
     }

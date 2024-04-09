@@ -10,12 +10,17 @@ function App() {
     setNotes([...notes, note])
   }
 
+  const deleteNotes =(id) =>{
+    const filter = notes.filter((note) => note.id !==id);
+    setNotes(filter)
+  }
+
 
   return (
     <>
       <Navbar/>
       <FormAdd addNote={addNote} />
-      <NotedList notes={notes} />
+      <NotedList notes={notes} onDelete={deleteNotes}/>
     </>
   )
 }
