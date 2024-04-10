@@ -5,16 +5,16 @@ export default function FormAdd({addNote}) {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
 
-
-
   const handleSubmit=(e)=>{
     e.preventDefault();
     
     const data = {
       id : new Date().getTime().toString(),
       title,
-      description
+      description,
+      checked : false
     }
+    
     addNote(data)
     setTitle('')
     setDescription('')

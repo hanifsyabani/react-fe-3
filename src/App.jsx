@@ -15,12 +15,23 @@ function App() {
     setNotes(filter)
   }
 
+  const updateNotes = (id) => {
+    const newNote = notes.map((note) => {
+      if (note.id === id) {
+        return { ...note, checked: !note.checked };
+      }
+      return note;
+    });
+
+    setNotes(newNote);
+  };
+
 
   return (
     <>
       <Navbar/>
       <FormAdd addNote={addNote} />
-      <NotedList notes={notes} onDelete={deleteNotes}/>
+      <NotedList notes={notes} onDelete={deleteNotes} onUpdate={updateNotes}/>
     </>
   )
 }
